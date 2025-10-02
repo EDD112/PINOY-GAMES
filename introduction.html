@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+     
+      .menu.intro::before {
+        background-image: url('introduction.png');
+        width: 600px;   /* slightly larger than default 360px */
+        height: 880px;  /* slightly larger than default 520px */
+      }
+      .menu.intro > * {
+        width: 600px;  
+        height: 910px;
+      }
+
+      
+      .menu.intro .menuButtons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+      }
+      .menu.intro #startButton {  
+        display: inline-block; 
+      }
+
+      @media (max-width: 900px) {
+       
+        .menu.intro::before {
+           width: 420px; 
+           height: 680px; 
+          }
+        .menu.intro > * { 
+          width: 420px; 
+          height: 680px; }
+      }
+
+      @media (min-width: 2100px) {
+        
+        .menu.intro::before { 
+          width: 720px; 
+          height: 1000px; 
+       }
+       
+       
+        .menu.intro > * { 
+          width: 720px; 
+          height: 1000px; 
+        }
+      }
+    </style>
+    <link rel="icon" href="data:,">
+    <meta name="description" content="Game introduction screen with continue button">
+</head>
+<body>
+    <div class="menu intro">
+      <div>
+       
+        <div class="menuButtons">
+          <a id="startButton" href="index.html?from=intro">Continue</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      
+     
+    </script>
+</body>
+</html>
+
