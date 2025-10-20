@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luksong Baka Game</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+  <div id="mainMenu" class="menu">
+    <div>
+      <h1>Luksong Baka</h1>
+
+      <div class="usernameContainer">
+        <label for="usernameInput">Enter your username</label>
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="Username"
+          maxlength="16"
+          autocomplete="off"
+          spellcheck="false"
+          autocapitalize="none"
+        />
+      </div>
+
+      <div class="menuButtons">
+        <button id="startButton">Start Game</button>  
+        <button id="instructionsButton">Instructions</button>
+        <button id="leaderboardButton">Leaderboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal overlay for instructions -->
+  <div id="instructionsModal" class="overlay hidden">
+    <div class="box">
+      <button id="closeInstructions" class="btn-secondary">Close</button>
+      <div id="instructionsContent"></div>
+    </div>
+  </div>
+
+  <!-- Modal overlay for leaderboard -->
+  <div id="leaderboardModal" class="overlay hidden">
+    <div class="box">
+      <button id="closeLeaderboard" class="btn-secondary">Close</button>
+      <div id="leaderboardContent"></div>
+    </div>
+  </div>
+
+  <div id="gameWrapper" class="game-wrapper hidden">
+    <div id="stage" class="stage">
+      <canvas id="gameCanvas"></canvas>
+      <div id="hud" class="hud">
+        <button id="pauseButton" class="hud-btn">Pause</button>
+      </div>
+
+      <!-- On-screen touch controls for mobile/touch devices -->
+          <div id="touchControls" class="touch-controls" aria-hidden="true">
+            <button class="tc-btn" data-key="ArrowLeft">◀</button>
+            <button class="tc-btn" data-key="ArrowRight">▶</button>
+        <button class="tc-btn tc-jump" data-key="ArrowUp">▲</button>
+        <button class="tc-btn tc-action" data-key=" ">●</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pause modal (ESC or Pause button) -->
+  <div id="pauseModal" class="overlay hidden">
+    <div class="box">
+      <h2>Paused</h2>
+      <p>Your score: <span id="pauseScore">0</span></p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+        <button id="resumeButton" class="btn-secondary">Resume</button>
+        <button id="backMenuButton" class="btn-secondary">Back to Menu</button>
+        <button id="pauseInstructionsButton" class="btn-secondary">Instructions</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script src="main.js"></script>
+  
+</body>
+</html>
