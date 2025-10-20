@@ -540,6 +540,10 @@ applyResponsiveScale();
 window.addEventListener('resize', () => {
   applyResponsiveScale();
   resizeCanvas();
+  ground = canvas.height - 100;
+  if (player) player.y = ground - player.height;
+  if (baka) baka.y = ground;
+});
 
     const background = new Image();
     background.src = "background.png";
@@ -988,3 +992,4 @@ window.addEventListener('resize', () => {
 
 
 });
+
