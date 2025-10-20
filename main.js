@@ -509,12 +509,37 @@ document.addEventListener('keydown', (e) => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resizeCanvas();
-    window.addEventListener("resize", () => {
-      resizeCanvas();
-      ground = canvas.height - 100;
-      if (player) player.y = ground - player.height;
-      if (baka) baka.y = ground;
-    });
+    function applyResponsiveScale() {
+  const canvasWidth = 1280;  // your base design width
+  const canvasHeight = 720;  // your base design height
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  let scale = Math.min(windowWidth / canvasWidth, windowHeight / canvasHeight);
+
+  if (windowWidth <= 1024) { // apply only for tablet or mobile
+    canvas.style.transform = 'scale(' + scale + ')';
+    canvas.style.transformOrigin = 'top left';
+
+    // adjust gameWrapper size to match scaled canvas
+    if (gameWrapper) {
+      gameWrapper.style.width = canvasWidth + 'px';
+      gameWrapper.style.height = canvasHeight + 'px';
+    }
+
+  } else {
+    // PC: remove scaling
+    canvas.style.transform = '';
+    if (gameWrapper) {
+      gameWrapper.style.width = '';
+      gameWrapper.style.height = '';
+    }
+  }
+}
+applyResponsiveScale();
+window.addEventListener('resize', () => {
+  applyResponsiveScale();
+  resizeCanvas();
 
     const background = new Image();
     background.src = "background.png";
@@ -960,5 +985,6 @@ document.addEventListener('keydown', (e) => {
     window.restartGame = restartGame;
 
   })();  
+
 
 });
